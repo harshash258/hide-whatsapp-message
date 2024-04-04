@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Hide Name & Picture</title>
+    <style>
+        body {
+            width: 250px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .container {
+            width: 250px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        span {
+            font-size: 14px;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            align-items: start;
+
+        }
+
+        .switch {
+
+            display: flex;
+            align-items: center;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: relative;
+            cursor: pointer;
+            width: 60px;
+            height: 34px;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            /* Add margin to separate switch and slider */
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        h3 {
+            width: 250px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>WhatsApp Hide Name & Picture</h3>
+
+    <div class="container">
+        <span>Blur Name</span>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <div class="container">
+        <span>Blur Image</span>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <div class="container">
+        <span>Blur Strength</span>
+
+        <input type="range" min="0" max="10" value="5" class="  " id="blurStrengthSlider">
+        <span id="sliderValue">5</span>
+    </div>
+    <!-- Include your JavaScript file here -->
+    <script src="popup.js"></script>
+    <script>
+        // Get the range input and value display element
+        var slider = document.getElementById('blurStrengthSlider');
+        var sliderValue = document.getElementById('sliderValue');
+
+        // Update the value display when the range input changes
+        slider.addEventListener('input', function () {
+            sliderValue.textContent = this.value;
+        });
+    </script>
+</body>
+
+</html>

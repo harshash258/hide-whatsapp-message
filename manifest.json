@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Hide WhatsApp Name & Picture",
+  "version": "1.0",
+  "description": "A Chrome extension to hide WhatsApp names and profile pictures.",
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://web.whatsapp.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "Hide WhatsApp Name & Picture"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
