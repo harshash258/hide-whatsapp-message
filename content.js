@@ -1,20 +1,49 @@
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-    if (message.action === 'hideNamesAndPictures') {
-        // Call the function to hide names and pictures
-        hideNamesAndPictures();
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+
+    chrome.storage.sync.get(['blurName', 'blurImage'], function (data) {
+        console.log(data.blurName);
+        console.log(data.blurImage);
+    });
+    if (message.action === "toggleBlurName") {
+        if (message.value) {
+            blurNames();
+        } else {
+            unblurNames();
+        }
+    }
+    if (message.action === "toggleBlurImage") {
+        if (message.value) {
+            blurProfilePictures();
+        } else {
+            unblurProfilePictures();
+        }
     }
 });
 
 // Function to hide WhatsApp names and profile pictures
-function hideNamesAndPictures() {
-    console.log("print")
+function blurNames() {
     const names = document.querySelectorAll("._ak8q");
-    const profile = document.querySelectorAll("._ak8h");
-
-    names.forEach(function(element) {
+    names.forEach(function (element) {
         element.style.filter = `blur(5px)`;
     });
-    profile.forEach(function(element) {
+
+}
+
+function blurProfilePictures() {
+    const profile = document.querySelectorAll("._ak8h");
+    profile.forEach(function (element) {
         element.style.filter = `blur(5px)`;
+    });
+}
+function unblurNames() {
+    const names = document.querySelectorAll("._ak8q");
+    names.forEach(function (element) {
+        element.style.filter = `blur(0px)`;
+    });
+}
+function unblurProfilePictures() {
+    const profile = document.querySelectorAll("._ak8h");
+    profile.forEach(function (element) {
+        element.style.filter = `blur(0px)`;
     });
 }

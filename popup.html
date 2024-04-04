@@ -100,31 +100,29 @@
     <div class="container">
         <span>Blur Name</span>
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="blurNameToggle">
             <span class="slider round"></span>
         </label>
     </div>
     <div class="container">
         <span>Blur Image</span>
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="blurImageToggle">
             <span class="slider round"></span>
         </label>
     </div>
     <div class="container">
         <span>Blur Strength</span>
 
-        <input type="range" min="0" max="10" value="5" class="  " id="blurStrengthSlider">
+        <input type="range" min="0" max="10" value="5" id="blurStrengthSlider">
         <span id="sliderValue">5</span>
     </div>
-    <!-- Include your JavaScript file here -->
+
     <script src="popup.js"></script>
     <script>
-        // Get the range input and value display element
         var slider = document.getElementById('blurStrengthSlider');
         var sliderValue = document.getElementById('sliderValue');
 
-        // Update the value display when the range input changes
         slider.addEventListener('input', function () {
             sliderValue.textContent = this.value;
         });

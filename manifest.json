@@ -4,6 +4,7 @@
   "version": "1.0",
   "description": "A Chrome extension to hide WhatsApp names and profile pictures.",
   "permissions": [
+    "storage",
     "activeTab"
   ],
   "content_scripts": [
