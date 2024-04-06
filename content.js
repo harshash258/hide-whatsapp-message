@@ -1,9 +1,4 @@
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-
-    chrome.storage.sync.get(['blurName', 'blurImage'], function (data) {
-        console.log(data.blurName);
-        console.log(data.blurImage);
-    });
     if (message.action === "toggleBlurName") {
         if (message.value) {
             blurNames();
@@ -20,7 +15,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     }
 });
 
-// Function to hide WhatsApp names and profile pictures
 function blurNames() {
     const names = document.querySelectorAll("._ak8q");
     names.forEach(function (element) {

@@ -8,7 +8,7 @@
     <style>
         body {
             width: 250px;
-            height: 250px;
+            height: 200px;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -111,22 +111,7 @@
             <span class="slider round"></span>
         </label>
     </div>
-    <div class="container">
-        <span>Blur Strength</span>
-
-        <input type="range" min="0" max="10" value="5" id="blurStrengthSlider">
-        <span id="sliderValue">5</span>
-    </div>
-
     <script src="popup.js"></script>
-    <script>
-        var slider = document.getElementById('blurStrengthSlider');
-        var sliderValue = document.getElementById('sliderValue');
-
-        slider.addEventListener('input', function () {
-            sliderValue.textContent = this.value;
-        });
-    </script>
 </body>
 
 </html>
